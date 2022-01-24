@@ -52,7 +52,7 @@
                         border-bottom: 1px solid #fd7e14
                     }
                 }
-                .nuxt-link-active {
+                .nuxt-link-exact-active {
                     color: #fd7e14;
                     border-bottom: 1px solid #fd7e14
                 }

@@ -38,3 +38,22 @@ body {
     outline: none;
   }
 }
+
+.notifications {
+  font-size: 16px;
+  color: #000;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  cursor: pointer;
+  &.warn {
+    background: #ffa83f;
+  }
+  &.error {
+    background: #df484a;
+  }
+  &.success {
+    background: #4eca7a;
+  }
+}

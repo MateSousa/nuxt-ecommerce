@@ -9,7 +9,7 @@
 <style lang="scss" scoped>
 .container {
   margin: 0 auto;
-  max-width: 1070px;
+  max-width: 1390px;
   @include screen('small') {
     width: 90%;
   }

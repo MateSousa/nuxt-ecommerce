@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <Container>
-            <Logo/>
+            <!-- <Logo/>
             <ul class="items">
                 <li class="item">
                     Ajuda & Informações
@@ -44,7 +44,7 @@
                 <li class="item">
                     <NuxtLink to="/">Segurança no pagamento</NuxtLink>
                 </li>
-            </ul> 
+            </ul>  -->
             <div class="copyright">
                 © Copyright 2022 | Pastel & Cia
             </div>

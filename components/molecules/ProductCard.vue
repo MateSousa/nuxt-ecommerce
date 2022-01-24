@@ -1,0 +1,78 @@
+<template>
+    <div class="product-card">
+        <div class="img">
+                
+        </div>
+        <div class="container-info">
+            <div class="info">
+                <h1>{{ product.name }}</h1>
+                <p>R$ {{ product.price }}</p>   
+            </div>
+            <div class="button-add-to-card">
+                <button @click="addToCart(product)">Adicionar ao carrinho</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script lang="ts">
+    import Vue, {PropOptions} from 'vue'
+    import {  Product } from '@/models'
+    export default Vue.extend({
+        props: {
+            product: {
+                type: Object,
+                required: true
+            } as PropOptions<Product>
+        },
+        methods: {
+            addToCart(product: Product) {
+               console.log(product.id)
+            }
+        }
+    })
+</script>
+
+<style lang="scss" scoped>
+
+    .product-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        .container-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            grid-gap: 10px;
+            justify-content: center;
+            align-items: center;
+            .info {
+                padding: 10px;
+                h1 {
+                    color: #000;
+                }
+                p {
+                    color: #000;
+                }
+            }
+            button {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                &:hover {
+                    background-color: #fd7e14;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+</style>

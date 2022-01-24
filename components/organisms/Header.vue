@@ -2,7 +2,7 @@
     <header class="header">
         <Container>
             <Logo/>
-            <Menu/>
+            <Navigation/>
             <Currencies/>
         </Container>
     </header>

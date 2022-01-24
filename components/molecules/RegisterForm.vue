@@ -3,20 +3,14 @@
         <Container>
             <form @submit.prevent="onSubmit">
                 <div class="form-group">
-                    <input type="email" name="email" id="email"  v-model="user.email" class="form-control" placeholder="E-mail">
+                    <input type="email" name="email" id="email" class="form-control" v-model="email" placeholder="E-mail">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" id="password" v-model="user.password" class="form-control" placeholder="Senha">
+                    <button type="submit" class="btn btn-primary">Próxima etapa</button>
                 </div>
                 <div class="form-group">
-                    <p class="forgot-password">Esqueceu sua senha?</p>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Entrar</button>
-                </div>
-                <div class="form-group">
-                    <p class="sign-up">Não tem uma conta? 
-                        <NuxtLink to="/register">Cadastre-se</NuxtLink>
+                    <p class="sign-up">Já possuí uma conta? 
+                        <NuxtLink to="/login">Entrar</NuxtLink>
                     </p>
                 </div>
             </form>
@@ -26,26 +20,32 @@
 
 <script lang="ts">
     import Vue from 'vue'
-    import { auth } from '@/store'
+    import { userRegister } from '@/store'
 
     export default Vue.extend({
         data() {
             return {
-                user: {
-                    email: '',
-                    password: ''
-                }
+                email: ''
             }
         },
         methods: {
             async onSubmit() {
                 try {
-                    await auth.create(this.user)
-                    this.$router.push('/')
+                    await userRegister.create({
+                    email: this.email,
+                    redirectUrl: 'http://localhost:3000/register'
+                    })
+
+                    this.email = ''
+
+                    this.$notify({
+                        type: 'success',
+                        text: 'Deu tudo certo! Verifique seu e-mail para continuar.'
+                    })
                 } catch {
                     this.$notify({
                         type: 'error',
-                        text: 'Ops...Algo deu errado.'
+                        text: 'Opss.. Algo deu errado.'
                     })
                 }
             }

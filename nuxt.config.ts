@@ -1,4 +1,5 @@
 export default {
+  mode: 'universal',
   head: {
     title: 'frontend',
     htmlAttrs: {
@@ -17,7 +18,7 @@ export default {
     'normalize.css/normalize.css',
     '@/assets/scss/base.scss'
   ],
-  plugins: [],
+  plugins: ['@/plugins/accessor', '@/plugins/notifications.client', '@/plugins/axios'],
 
   components: [{ path: '@/components', pathPrefix: false }],
 
@@ -27,11 +28,12 @@ export default {
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'cookie-universal-nuxt',
   ],
 
   axios: {
-    baseURL: '/',
+    baseURL: 'http://localhost:3333',
   },
 
   styleResources: {

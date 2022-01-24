@@ -1,7 +1,7 @@
 <template>
     <div class="login-template">
-        <h1>Entre na sua conta</h1>
-        <LoginForm/>
+        <h2>Complete seu cadastro</h2>
+        <RegisterConclusionForm/>
     </div>
 </template>
 
@@ -13,6 +13,11 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
 }
 
 </style>

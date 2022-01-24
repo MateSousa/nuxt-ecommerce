@@ -1,13 +1,12 @@
 <template>
-  <div class="container">
-    hello
-  </div>
+  <HomeTemplate/>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import {users} from '@/store'
 
 export default Vue.extend({
-  name: 'IndexPage',
+  layout: 'pastelecia',
 })
 </script>

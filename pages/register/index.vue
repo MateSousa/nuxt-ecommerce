@@ -1,5 +1,5 @@
 <template>
-<ShopTemplate/>
+    <RegisterTemplate />
 </template>
 
 <script lang="ts">
@@ -7,6 +7,10 @@
 
     export default Vue.extend({
         layout: 'pastelecia',
+        middleware: 'guest',
     })
 </script>
 
+<style scoped>
+
+</style>

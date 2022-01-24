@@ -12,20 +12,12 @@
     </div>
 </template>
 
-<script lang="ts">
-    import Vue from 'vue'
-
-    export default Vue.extend({
-        
-
-    })
-</script>
 
 <style lang="scss" scoped>
 
     .home-template {
         width: 100%;
-        height: 100vh;
+        height: 55vh;
         background: url('~/assets/img/bg-home.png');
         background-size: cover;
         background-position: center;

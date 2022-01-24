@@ -3,20 +3,29 @@
         <Container>
             <form @submit.prevent="onSubmit">
                 <div class="form-group">
-                    <input type="email" name="email" id="email"  v-model="user.email" class="form-control" placeholder="E-mail">
+                    <input readonly type="email" name="email" id="email" class="form-control" v-model="user.email" placeholder="E-mail">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" id="password" v-model="user.password" class="form-control" placeholder="Senha">
+                    <input type="text" name="name" id="name" class="form-control" v-model="user.name" placeholder="Nome">
                 </div>
                 <div class="form-group">
-                    <p class="forgot-password">Esqueceu sua senha?</p>
+                    <input type="text" name="lastname" id="lastname" class="form-control" v-model="user.lastName" placeholder="Sobrenome">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <input type="tel"  name="phone" id="phone" class="form-control" v-model="user.phone" placeholder="Celular">
                 </div>
                 <div class="form-group">
-                    <p class="sign-up">Não tem uma conta? 
-                        <NuxtLink to="/register">Cadastre-se</NuxtLink>
+                    <input type="password" name="password" id="password" class="form-control" v-model="user.password" placeholder="Senha">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control" v-model="user.passwordConfirmation" placeholder="Confirmar senha">
+                </div>                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Finalizar cadastro</button>
+                </div>
+                <div class="form-group">
+                    <p class="sign-up">Já possuí uma conta? 
+                        <NuxtLink to="/login">Entrar</NuxtLink>
                     </p>
                 </div>
             </form>
@@ -25,32 +34,39 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue'
-    import { auth } from '@/store'
+import Vue from 'vue'
+import { userRegister } from '@/store'
 
-    export default Vue.extend({
-        data() {
-            return {
-                user: {
-                    email: '',
-                    password: ''
-                }
-            }
-        },
-        methods: {
-            async onSubmit() {
-                try {
-                    await auth.create(this.user)
-                    this.$router.push('/')
-                } catch {
-                    this.$notify({
-                        type: 'error',
-                        text: 'Ops...Algo deu errado.'
-                    })
-                }
+export default Vue.extend({
+    data() { 
+        return {
+            user: {
+                email: userRegister.$user.email,
+                name: '',
+                lastName: '',
+                phone: '',
+                password: '',
+                passwordConfirmation: '',
             }
         }
-    })
+    },
+    methods: {
+        async onSubmit() {
+            try {
+                await userRegister.update({
+                    key: this.$route.params.key,
+                    ...this.user
+                })
+                this.$router.push('/login')                
+            } catch {
+                this.$notify({
+                    type: 'error',
+                    text: 'Ops...Algo deu errado.'
+                })
+            }
+        }
+    }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -65,7 +81,7 @@
         form {
             display:grid;
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, 0.1fr);
+            grid-template-rows: repeat(7, 0.1fr);
             grid-gap: 1rem;
             justify-content: center;
             align-items: center;    
@@ -103,19 +119,6 @@
                         background-color: #fd7e14;
                     }
                 }
-                .forgot-password {
-                    font-size: 0.8rem;
-                    font-weight: bold;
-                    margin-bottom: 0.5rem;
-                    cursor: pointer;
-                    color: #000;
-                    opacity: 0.3;
-                    &:hover {
-                        opacity: 1;
-                        color: #fd7e14;
-                    }
-                }
-
                 .sign-up {
                     font-size: .8rem;
                     font-weight: bold;
