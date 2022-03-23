@@ -1,14 +1,14 @@
 <template>
     <div class="currencies">
-        <NuxtLink to="/">
+        <!-- <NuxtLink to="/">
             <img src="~/assets/img/search.svg" alt="Ícone de procura">
-        </NuxtLink>
+        </NuxtLink> -->
         <NuxtLink to="/login">
             <img src="~/assets/img/user.svg" alt="Ícone de usuário">
         </NuxtLink>
-        <NuxtLink to="/">
+        <!-- <NuxtLink to="/">
             <img src="~/assets/img/heart.svg" alt="Ícone de coração">
-        </NuxtLink>
+        </NuxtLink> -->
         <NuxtLink to="/">
             <img src="~/assets/img/bag.svg" alt="Ícone de sacola">
         </NuxtLink>
@@ -22,7 +22,7 @@
 .currencies {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 0.1fr);
+    grid-template-columns: repeat(2, 0.1fr);
     justify-items: center;
     align-items: center;
     a {

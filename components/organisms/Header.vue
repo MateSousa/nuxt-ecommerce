@@ -2,8 +2,9 @@
     <header class="header">
         <Container>
             <Logo/>
-            <Navigation/>
-            <Currencies/>
+            <Navigation />
+            <Currencies />
+            <MobileNavigation />
         </Container>
     </header>
 </template>
@@ -20,6 +21,12 @@
         grid-template-rows: 1fr;
         justify-items: center;
         align-items: center;
+        .navigation {
+
+            @media (max-width: 480px) { 
+                display: none;
+            }
+        }
     }
 }
 

@@ -7,7 +7,7 @@
             <button @click="changeView('Drinks')">Bebidas</button>
         </div>
         
-        <component :is="currentView" />
+        <component :is="currentView" class="products-container" />
     </div>
 </template>
 
@@ -49,6 +49,9 @@
                     background: #fd7e14;
                 }
             }
+        }
+        .products-container {
+            margin-top: 50px;
         }
     }
 

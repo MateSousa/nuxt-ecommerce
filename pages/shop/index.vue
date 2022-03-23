@@ -1,5 +1,5 @@
 <template>
-<ShopTemplate/>
+    <ShopTemplate/>
 </template>
 
 <script lang="ts">

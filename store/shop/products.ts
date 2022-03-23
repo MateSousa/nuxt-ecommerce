@@ -21,7 +21,10 @@ interface UpdatePayload {
 export default class ShopProducts extends VuexModule { 
     private products = {} as Product
     private product = {} as Product
-    private chickenProduct = {} as Product
+    private chickenProducts = {} as Product
+    private pastryProducts = {} as Product
+    private comboProducts = {} as Product
+    private drinksProducts = {} as Product
 
     public get $All() {
         return this.products
@@ -32,7 +35,19 @@ export default class ShopProducts extends VuexModule {
     }
 
     public get $Chicken() {
-        return this.chickenProduct
+        return this.chickenProducts
+    }
+
+    public get $Pastry() {
+        return this.pastryProducts
+    }
+
+    public get $Combo() {
+        return this.comboProducts
+    }
+
+    public get $Drinks() {
+        return this.drinksProducts
     }
 
 
@@ -48,9 +63,26 @@ export default class ShopProducts extends VuexModule {
     }
 
     @Mutation
-    UPDATE_CHICKEN_PRODUCT(product: Product) {
-        this.chickenProduct = product
+    UPDATE_CHICKEN_PRODUCT(chickenProducts: Product) {
+        this.chickenProducts = chickenProducts
     }
+
+    @Mutation
+    UPDATE_PASTRY_PRODUCT(pastryProducts: Product) {
+        this.pastryProducts = pastryProducts
+    }
+
+    @Mutation
+    UPDATE_COMBO_PRODUCT(comboProducts: Product) {
+        this.comboProducts = comboProducts
+    }
+    
+    @Mutation
+    UPDATE_DRINKS_PRODUCT(drinksProducts: Product) {
+        this.drinksProducts = drinksProducts
+    }
+
+
 
 
     @Action({ rawError: true })
@@ -61,6 +93,15 @@ export default class ShopProducts extends VuexModule {
 
         const chickenProducts = products.filter(product => product.categoryName === 'Frango')
         this.context.commit('UPDATE_CHICKEN_PRODUCT', chickenProducts)
+
+        const pastryProducts = products.filter(product => product.categoryName === 'Pastel')
+        this.context.commit('UPDATE_PASTRY_PRODUCT', pastryProducts)
+
+        const comboProducts = products.filter(product => product.categoryName === 'Combo')
+        this.context.commit('UPDATE_COMBO_PRODUCT', comboProducts)
+
+        const drinksProducts = products.filter(product => product.categoryName === 'Bebida')
+        this.context.commit('UPDATE_DRINKS_PRODUCT', drinksProducts)
     }
 
     @Action({ rawError: true })

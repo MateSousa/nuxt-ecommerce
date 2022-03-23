@@ -1,7 +1,7 @@
 <template>
     <div class="product-card">
         <div class="img">
-                
+                <img src="https://www.solucoesindustriais.com.br/images/produtos/imagens_11773/p_balde-para-frango-frito_11773_3648291601919655229_3.jpg" alt="">
         </div>
         <div class="container-info">
             <div class="info">
@@ -44,6 +44,11 @@
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        height: 450px;
+        img  {
+            width: 100%;
+            height: auto;
+        }
         .container-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
