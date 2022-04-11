@@ -44,9 +44,15 @@
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        width: 200px;
         height: 450px;
-        img  {
-            width: 100%;
+        align-items: center;
+        @media (min-width: 481px) {
+            width: 300px;
+            justify-content: center;            
+        }
+         img  {
+            width: 180px;
             height: auto;
         }
         .container-info {
@@ -60,6 +66,7 @@
                 padding: 10px;
                 h1 {
                     color: #000;
+
                 }
                 p {
                     color: #000;
@@ -75,6 +82,20 @@
                 &:hover {
                     background-color: #fd7e14;
                     color: #fff;
+                }
+            }
+            @media (max-width: 480px) {
+                
+                h1 {
+                    font-size: 18px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+
+                button {
+                    font-size: 14px;
                 }
             }
         }
