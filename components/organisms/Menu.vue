@@ -1,14 +1,11 @@
 <template>
     <div class="menu">
-        <div class="btn-choice">
-            <button @click="changeView('Chicken')">Frango</button>
-            <button @click="changeView('Pastry')">Pastel</button>
-            <button @click="changeView('Combo')">Combos</button>
-            <button @click="changeView('Drinks')">Bebidas</button>
-        </div>
-        
-        <component :is="currentView" class="products-container" />
+        <button class="btn-choice btn chicken" @click="$emit('chicken')">Frango</button>
+        <button class="btn-choice btn pastry" @click="$emit('pastry')">Pastel</button>
+        <button class="btn-choice btn combo" @click="$emit('combo')">Combos</button>
+        <button class="btn-choice btn drinks" @click="$emit('drinks')">Bebidas</button>
     </div>
+        
 </template>
 
 <script lang="ts">
@@ -30,29 +27,29 @@
 
 <style  lang="scss" scoped>
 
-    .menu {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        .btn-choice {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            button {
-                background: #000;
-                color: #fff;
-                border: none;
-                padding: 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                &:hover {
-                    background: #fd7e14;
-                }
-            }
-        }
-        .products-container {
-            margin-top: 50px;
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    button {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background: #fd7e14;
         }
     }
+    @media (min-width: 768px) {
+        justify-content:center;
+        gap: 20px;
+    }
+
+            
+}
+    
 
 </style>
