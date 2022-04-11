@@ -25,8 +25,20 @@
 
             @media (max-width: 480px) { 
                 display: none;
+            }            
+        }
+
+        .mobile-navigation  {
+            @media (min-width: 481px) { 
+                display: none;
             }
         }
+        @media (max-width: 480px) { 
+            .currencies {
+                padding-left: 300px;
+            }
+        }
+
     }
 }
 
