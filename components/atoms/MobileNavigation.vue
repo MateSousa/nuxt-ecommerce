@@ -7,7 +7,7 @@
             <button class="btn btn-close" @click="toggle">
                 <img src="~/assets/img/close.svg" alt="Ícone de fechar">
             </button>
-            <ul class="items">
+            <ul class="items" @click="toggle">
                 <li class="item">
                     <NuxtLink to="/" class="nav-link">
                         Inicio
@@ -45,6 +45,10 @@
         methods: {
             toggle() {
                 this.show = !this.show
+            },
+            // when click on a link component is close
+            close() {
+                this.show = false
             }
         }
     })
@@ -63,9 +67,9 @@
     }
     nav {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         background: #fff;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         z-index: 9999;
@@ -73,7 +77,6 @@
             // center the items in screen
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(4, 1fr);
             justify-items: center;
             align-items: center;
             li {
